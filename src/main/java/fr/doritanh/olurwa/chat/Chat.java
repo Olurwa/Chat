@@ -1,6 +1,6 @@
 package fr.doritanh.olurwa.chat;
 
-import net.md_5.bungee.api.chat.TextComponent;
+import fr.doritanh.olurwa.chat.messages.JoinMessage;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
 import net.md_5.bungee.api.plugin.Plugin;
 
@@ -21,11 +21,9 @@ public class Chat extends Plugin {
 	}
 	
 	public void sendJoinMessage(ProxiedPlayer p) {
-		TextComponent welcome = new TextComponent("Salut ");
-		welcome.addExtra(p.getName());
-		welcome.addExtra(" !");
+		JoinMessage msg = new JoinMessage(p);
 		for (ProxiedPlayer other : this.getProxy().getPlayers()) {
-			other.sendMessage(welcome);
+			other.sendMessage(msg.getJoinMessage());
 		}
 	}
 }
