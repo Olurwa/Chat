@@ -54,7 +54,7 @@ public class JoinMessage {
 	}
 	
 	private void setJoinMessage1() {
-		this.joinMessage.addExtra("Te voil‡ de retour, ");
+		this.joinMessage.addExtra("Te voil√† de retour, ");
 		this.joinMessage.setColor(ChatColor.AQUA);
 		this.joinMessage.addExtra(this.player.getName());
 		this.joinMessage.setColor(ChatColor.BLUE);
@@ -72,7 +72,7 @@ public class JoinMessage {
 	}
 	
 	private void setJoinMessage3() {
-		this.joinMessage.addExtra("Mais qui voil‡ ? ");
+		this.joinMessage.addExtra("Mais qui voil√† ? ");
 		this.joinMessage.setColor(ChatColor.AQUA);
 		this.joinMessage.addExtra(this.player.getName());
 		this.joinMessage.setColor(ChatColor.BLUE);
@@ -85,7 +85,7 @@ public class JoinMessage {
 		this.joinMessage.setColor(ChatColor.AQUA);
 		this.joinMessage.addExtra(this.player.getName());
 		this.joinMessage.setColor(ChatColor.BLUE);
-		this.joinMessage.addExtra(" est l‡ !");
+		this.joinMessage.addExtra(" est l√† !");
 		this.joinMessage.setColor(ChatColor.AQUA);
 	}
 	
