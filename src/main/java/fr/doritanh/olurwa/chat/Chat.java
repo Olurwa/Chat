@@ -23,6 +23,9 @@ public class Chat extends Plugin {
 	public void sendJoinMessage(ProxiedPlayer p) {
 		TextComponent welcome = new TextComponent("Salut ");
 		welcome.addExtra(p.getName());
-		this.getProxy().broadcast(welcome);
+		welcome.addExtra(" !");
+		for (ProxiedPlayer other : this.getProxy().getPlayers()) {
+			other.sendMessage(welcome);
+		}
 	}
 }
