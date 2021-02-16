@@ -29,7 +29,7 @@ public class MessageListener implements Listener {
 			CachedMetaData user = Core.getInstance().getLuckPerms().getPlayerAdapter(ProxiedPlayer.class).getMetaData(player);
 			String message = player.getName() + ": " + e.getMessage();
 			if (user.getPrefix() != null) {
-				message = user.getPrefix() + ChatColor.RESET + player.getName() + ": ";
+				message = user.getPrefix() + ChatColor.RESET + player.getName() + ": " + e.getMessage();
 			}
 			message = ChatColor.translateAlternateColorCodes('&', message);
 			for (ProxiedPlayer other : Core.getInstance().getProxy().getPlayers()) {
