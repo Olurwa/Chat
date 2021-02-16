@@ -24,9 +24,13 @@ public class MessageListener implements Listener {
 	@EventHandler
 	public void onChatEvent(ChatEvent e) {
 		if (!e.isCommand() && !e.isProxyCommand() && e.getSender() instanceof ProxiedPlayer) {
+			e.setCancelled(true);
 			ProxiedPlayer player = (ProxiedPlayer)e.getSender();
-			CachedMetaData data = Core.getInstance().getLuckPerms().getPlayerAdapter(ProxiedPlayer.class).getMetaData(player);
-			String message = data.getPrefix() + ChatColor.RESET + player.getName() + ": ";
+			CachedMetaData user = Core.getInstance().getLuckPerms().getPlayerAdapter(ProxiedPlayer.class).getMetaData(player);
+			String message = player.getName() + ": ";
+			if (user.getPrefix() != null) {
+				message = user.getPrefix() + ChatColor.RESET + player.getName() + ": ";
+			}
 			for (ProxiedPlayer other : Core.getInstance().getProxy().getPlayers()) {
 				other.sendMessage(new TextComponent(message));
 			}
