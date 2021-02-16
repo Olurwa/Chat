@@ -1,7 +1,7 @@
 package fr.doritanh.olurwa.core.listeners;
 
+import fr.doritanh.olurwa.core.messages.MotdMessage;
 import net.md_5.bungee.api.ServerPing;
-import net.md_5.bungee.api.chat.TextComponent;
 import net.md_5.bungee.api.event.ProxyPingEvent;
 import net.md_5.bungee.api.plugin.Cancellable;
 import net.md_5.bungee.api.plugin.Listener;
@@ -21,7 +21,8 @@ public class ProxyPingListener implements Listener {
 		int onlinePlayers = players.getOnline();
 		int maxPlayers = players.getMax();
 		
-		response.setDescriptionComponent(new TextComponent("Olurwa"));
+		MotdMessage motd = new MotdMessage();
+		response.setDescriptionComponent(motd.getMotd());
 	}
 	
 }
