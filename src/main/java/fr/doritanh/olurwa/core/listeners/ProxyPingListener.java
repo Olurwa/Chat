@@ -19,7 +19,9 @@ public class ProxyPingListener implements Listener {
 		
 		final ServerPing.Players players = response.getPlayers();
 		int onlinePlayers = players.getOnline();
+		players.setOnline(onlinePlayers);
 		int maxPlayers = players.getMax();
+		players.setMax(maxPlayers);
 		
 		MotdMessage motd = new MotdMessage();
 		response.setDescriptionComponent(motd.getMotd());

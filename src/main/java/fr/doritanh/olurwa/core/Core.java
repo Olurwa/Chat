@@ -10,7 +10,7 @@ public class Core extends Plugin {
 	private static Core instance;
 	
 	public Core() {
-		this.instance = this;
+		Core.instance = this;
 	}
 	
 	@Override
