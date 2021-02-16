@@ -21,7 +21,7 @@ public class ProxyPingListener implements Listener {
 		int onlinePlayers = players.getOnline();
 		int maxPlayers = players.getMax();
 		
-		response.setDescriptionComponent(new TextComponent("BONJOUR"));
+		response.setDescriptionComponent(new TextComponent("Olurwa"));
 	}
 	
 }
