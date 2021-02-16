@@ -1,6 +1,7 @@
 package fr.doritanh.olurwa.core;
 
 import fr.doritanh.olurwa.core.listeners.MessageListener;
+import fr.doritanh.olurwa.core.listeners.ProxyPingListener;
 import fr.doritanh.olurwa.core.messages.JoinMessage;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
 import net.md_5.bungee.api.plugin.Plugin;
@@ -14,7 +15,9 @@ public class Core extends Plugin {
 	
 	@Override
     public void onEnable() {
+		// Register events
 		this.getProxy().getPluginManager().registerListener(this, new MessageListener());
+		this.getProxy().getPluginManager().registerListener(this, new ProxyPingListener());
     }
 	
 	public static Core getInstance() {
