@@ -24,7 +24,10 @@ public class Core extends Plugin {
 	
 	public Core() {
 		Core.instance = this;
-		File configFile = new File(getDataFolder(), "config.yml");
+		if (!this.getDataFolder().exists()) {
+			this.getDataFolder().mkdir();
+		}
+		File configFile = new File(this.getDataFolder(), "config.yml");
 		try {
 			configFile.createNewFile();
 			this.config = ConfigurationProvider.getProvider(YamlConfiguration.class).load(configFile);
