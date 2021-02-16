@@ -1,6 +1,6 @@
 package fr.doritanh.olurwa.core;
 
-import fr.doritanh.olurwa.core.listener.MessageListener;
+import fr.doritanh.olurwa.core.listeners.MessageListener;
 import fr.doritanh.olurwa.core.messages.JoinMessage;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
 import net.md_5.bungee.api.plugin.Plugin;

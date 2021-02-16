@@ -1,4 +1,4 @@
-package fr.doritanh.olurwa.core.listener;
+package fr.doritanh.olurwa.core.listeners;
 
 import fr.doritanh.olurwa.core.Core;
 import net.md_5.bungee.api.event.PostLoginEvent;
