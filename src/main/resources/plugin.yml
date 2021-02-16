@@ -1,4 +1,4 @@
 name: Chat
-main: fr.doritanh.olurwa.chat.Chat
+main: fr.doritanh.olurwa.core.Core
 version: 1.0
 author: Olurwa

@@ -1,13 +1,14 @@
-package fr.doritanh.olurwa.chat;
+package fr.doritanh.olurwa.core;
 
-import fr.doritanh.olurwa.chat.messages.JoinMessage;
+import fr.doritanh.olurwa.core.listener.MessageListener;
+import fr.doritanh.olurwa.core.messages.JoinMessage;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
 import net.md_5.bungee.api.plugin.Plugin;
 
-public class Chat extends Plugin {
-	private static Chat instance;
+public class Core extends Plugin {
+	private static Core instance;
 	
-	public Chat() {
+	public Core() {
 		this.instance = this;
 	}
 	
@@ -16,7 +17,7 @@ public class Chat extends Plugin {
 		this.getProxy().getPluginManager().registerListener(this, new MessageListener());
     }
 	
-	public static Chat getInstance() {
+	public static Core getInstance() {
 		return instance;
 	}
 	

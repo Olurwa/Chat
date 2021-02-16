@@ -1,4 +1,4 @@
-package fr.doritanh.olurwa.chat.messages;
+package fr.doritanh.olurwa.core.messages;
 
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.chat.TextComponent;
