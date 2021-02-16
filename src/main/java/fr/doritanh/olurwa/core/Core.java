@@ -61,11 +61,8 @@ public class Core extends Plugin {
 	public Configuration getConfig() {
 		return config;
 	}
-
-	public void sendJoinMessage(ProxiedPlayer p) {
-		JoinMessage msg = new JoinMessage(p);
-		for (ProxiedPlayer other : this.getProxy().getPlayers()) {
-			other.sendMessage(msg.getJoinMessage());
-		}
+	
+	public LuckPerms getLuckPerms() {
+		return this.lp;
 	}
 }
