@@ -27,10 +27,11 @@ public class MessageListener implements Listener {
 			e.setCancelled(true);
 			ProxiedPlayer player = (ProxiedPlayer)e.getSender();
 			CachedMetaData user = Core.getInstance().getLuckPerms().getPlayerAdapter(ProxiedPlayer.class).getMetaData(player);
-			String message = player.getName() + ": ";
+			String message = player.getName() + ": " + e.getMessage();
 			if (user.getPrefix() != null) {
 				message = user.getPrefix() + ChatColor.RESET + player.getName() + ": ";
 			}
+			message = ChatColor.translateAlternateColorCodes('&', message);
 			for (ProxiedPlayer other : Core.getInstance().getProxy().getPlayers()) {
 				other.sendMessage(new TextComponent(message));
 			}
