@@ -1,5 +1,6 @@
 package fr.doritanh.olurwa.core.messages;
 
+import fr.doritanh.olurwa.core.Core;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.chat.TextComponent;
 
@@ -7,7 +8,8 @@ public class MotdMessage {
 	private TextComponent motd;
 	
 	public MotdMessage() {
-		this.motd = new TextComponent("Olurwa en construction");
+		String motd = Core.getInstance().getConfig().getString("motd");
+		this.motd = new TextComponent(motd);
 		this.motd.setColor(ChatColor.AQUA);
 		
 	}
