@@ -7,6 +7,7 @@ import net.md_5.bungee.api.event.PostLoginEvent;
 import net.md_5.bungee.api.plugin.Listener;
 import net.md_5.bungee.event.EventHandler;
 import net.md_5.bungee.protocol.packet.PlayerListItem;
+import net.md_5.bungee.
 
 public class PlayerListener implements Listener {
 
@@ -22,16 +23,16 @@ public class PlayerListener implements Listener {
 //		TablistMessage tl = new TablistMessage();
 //		e.getPlayer().setTabHeader(tl.getHeader(), tl.getFooter());
 		
-		PlayerListItem packet = new PlayerListItem();
-		packet.setAction(PlayerListItem.Action.ADD_PLAYER);
-		
-		PlayerListItem.Item item = new PlayerListItem.Item();
-		item.setUuid(e.getPlayer().getUniqueId());
-		item.setDisplayName(e.getPlayer().getDisplayName());
-		item.setPing(e.getPlayer().getPing());
-		item.setUsername(e.getPlayer().getName());
-		
-		packet.setItems(new PlayerListItem.Item[] { item });
-		e.getPlayer().unsafe().sendPacket(packet);
+//		PlayerListItem packet = new PlayerListItem();
+//		packet.setAction(PlayerListItem.Action.UPDATE_DISPLAY_NAME);
+//		
+//		PlayerListItem.Item item = new PlayerListItem.Item();
+//		item.setUuid(e.getPlayer().getUniqueId());
+//		item.setDisplayName(e.getPlayer().getDisplayName());
+//		item.setPing(e.getPlayer().getPing());
+//		item.setUsername(e.getPlayer().getName());
+//		packet.setItems(new PlayerListItem.Item[] { item });
+
+		e.getPlayer().unsafe().sendPacket(new PlayerListItem());
     }
 }
