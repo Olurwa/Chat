@@ -7,7 +7,6 @@ import net.md_5.bungee.api.event.PostLoginEvent;
 import net.md_5.bungee.api.plugin.Listener;
 import net.md_5.bungee.event.EventHandler;
 import net.md_5.bungee.protocol.packet.PlayerListItem;
-import net.md_5.bungee.
 
 public class PlayerListener implements Listener {
 
