@@ -7,6 +7,7 @@ import java.util.logging.Level;
 import fr.doritanh.olurwa.core.commands.LobbyCommand;
 import fr.doritanh.olurwa.core.commands.MotdCommand;
 import fr.doritanh.olurwa.core.listeners.MessageListener;
+import fr.doritanh.olurwa.core.listeners.PlayerListener;
 import fr.doritanh.olurwa.core.listeners.ProxyPingListener;
 import fr.doritanh.olurwa.core.messages.JoinMessage;
 import net.luckperms.api.LuckPerms;
@@ -51,6 +52,7 @@ public class Core extends Plugin {
 		// Register events
 		this.getProxy().getPluginManager().registerListener(this, new MessageListener());
 		this.getProxy().getPluginManager().registerListener(this, new ProxyPingListener());
+		this.getProxy().getPluginManager().registerListener(this, new PlayerListener());
 		
     }
 	
