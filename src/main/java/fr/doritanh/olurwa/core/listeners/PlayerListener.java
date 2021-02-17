@@ -20,15 +20,15 @@ public class PlayerListener implements Listener {
 		}
 		
 		// Set up the tablist
-		TablistMessage tl = new TablistMessage();
-		e.getPlayer().setTabHeader(tl.getHeader(), tl.getFooter());
+//		TablistMessage tl = new TablistMessage();
+//		e.getPlayer().setTabHeader(tl.getHeader(), tl.getFooter());
 		
 		PlayerListItem packet = new PlayerListItem();
-		packet.setAction(PlayerListItem.Action.REMOVE_PLAYER);
+		packet.setAction(PlayerListItem.Action.ADD_PLAYER);
 		
 		PlayerListItem.Item item = new PlayerListItem.Item();
 		item.setUuid(e.getPlayer().getUniqueId());
-		packet.setItems(new PlayerListItem.Item[] {item });
+		packet.setItems(new PlayerListItem.Item[] { item });
 		e.getPlayer().unsafe().sendPacket(packet);
     }
 }
