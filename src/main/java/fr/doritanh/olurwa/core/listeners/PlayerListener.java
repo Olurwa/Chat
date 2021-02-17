@@ -2,7 +2,7 @@ package fr.doritanh.olurwa.core.listeners;
 
 import fr.doritanh.olurwa.core.Core;
 import fr.doritanh.olurwa.core.messages.JoinMessage;
-import net.md_5.bungee.api.chat.TextComponent;
+import fr.doritanh.olurwa.core.messages.TablistMessage;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
 import net.md_5.bungee.api.event.PostLoginEvent;
 import net.md_5.bungee.api.plugin.Listener;
@@ -19,6 +19,7 @@ public class PlayerListener implements Listener {
 		}
 		
 		// Set up the tablist
-		e.getPlayer().setTabHeader(new TextComponent("HEADER"), new TextComponent("FOOTER"));
+		TablistMessage tl = new TablistMessage();
+		e.getPlayer().setTabHeader(tl.getHeader(), tl.getFooter());
     }
 }
