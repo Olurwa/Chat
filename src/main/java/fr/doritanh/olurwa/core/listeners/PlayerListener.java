@@ -7,6 +7,7 @@ import net.md_5.bungee.api.connection.ProxiedPlayer;
 import net.md_5.bungee.api.event.PostLoginEvent;
 import net.md_5.bungee.api.plugin.Listener;
 import net.md_5.bungee.event.EventHandler;
+import net.md_5.bungee.protocol.packet.PlayerListItem;
 
 public class PlayerListener implements Listener {
 
@@ -21,5 +22,13 @@ public class PlayerListener implements Listener {
 		// Set up the tablist
 		TablistMessage tl = new TablistMessage();
 		e.getPlayer().setTabHeader(tl.getHeader(), tl.getFooter());
+		
+		PlayerListItem packet = new PlayerListItem();
+		packet.setAction(PlayerListItem.Action.REMOVE_PLAYER);
+		
+		PlayerListItem.Item item = new PlayerListItem.Item();
+		item.setUuid(e.getPlayer().getUniqueId());
+		packet.setItems(new PlayerListItem.Item[] {item });
+		e.getPlayer().unsafe().sendPacket(packet);
     }
 }
