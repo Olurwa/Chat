@@ -2,7 +2,6 @@ package fr.doritanh.olurwa.core.listeners;
 
 import fr.doritanh.olurwa.core.Core;
 import fr.doritanh.olurwa.core.messages.JoinMessage;
-import fr.doritanh.olurwa.core.messages.TablistMessage;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
 import net.md_5.bungee.api.event.PostLoginEvent;
 import net.md_5.bungee.api.plugin.Listener;
@@ -28,6 +27,10 @@ public class PlayerListener implements Listener {
 		
 		PlayerListItem.Item item = new PlayerListItem.Item();
 		item.setUuid(e.getPlayer().getUniqueId());
+		item.setDisplayName(e.getPlayer().getDisplayName());
+		item.setPing(e.getPlayer().getPing());
+		item.setUsername(e.getPlayer().getName());
+		
 		packet.setItems(new PlayerListItem.Item[] { item });
 		e.getPlayer().unsafe().sendPacket(packet);
     }
