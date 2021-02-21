@@ -18,21 +18,5 @@ public class PlayerListener implements Listener {
 		for (ProxiedPlayer other : Core.getInstance().getProxy().getPlayers()) {
 			other.sendMessage(msg.getJoinMessage());
 		}
-		
-		// Set up the tablist
-		TablistMessage tl = new TablistMessage();
-		e.getPlayer().setTabHeader(tl.getHeader(), tl.getFooter());
-		
-//		PlayerListItem packet = new PlayerListItem();
-//		packet.setAction(PlayerListItem.Action.UPDATE_DISPLAY_NAME);
-//		
-//		PlayerListItem.Item item = new PlayerListItem.Item();
-//		item.setUuid(e.getPlayer().getUniqueId());
-//		item.setDisplayName(e.getPlayer().getDisplayName());
-//		item.setPing(e.getPlayer().getPing());
-//		item.setUsername(e.getPlayer().getName());
-//		packet.setItems(new PlayerListItem.Item[] { item });
-
-//		e.getPlayer().unsafe().sendPacket(new PlayerListItem());
     }
 }
