@@ -6,6 +6,7 @@ import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.chat.TextComponent;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
 import net.md_5.bungee.api.event.ChatEvent;
+import net.md_5.bungee.api.event.TabCompleteEvent;
 import net.md_5.bungee.api.event.TabCompleteResponseEvent;
 import net.md_5.bungee.api.plugin.Listener;
 import net.md_5.bungee.event.EventHandler;
@@ -30,6 +31,13 @@ public class MessageListener implements Listener {
 	
 	@EventHandler
 	public void onTabCompleteResponse(TabCompleteResponseEvent e) {
+		e.getSuggestions().clear();
+		e.setCancelled(true);
+	}
+	
+	@EventHandler
+	public void onTabComplete(TabCompleteEvent e) {
+		e.getSuggestions().clear();
 		e.setCancelled(true);
 	}
 	
