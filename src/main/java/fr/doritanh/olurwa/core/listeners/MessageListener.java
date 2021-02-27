@@ -8,6 +8,7 @@ import net.md_5.bungee.api.chat.TextComponent;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
 import net.md_5.bungee.api.event.ChatEvent;
 import net.md_5.bungee.api.plugin.Listener;
+
 import net.md_5.bungee.event.EventHandler;
 
 public class MessageListener implements Listener {
@@ -17,13 +18,13 @@ public class MessageListener implements Listener {
 		if (e.isCommand() || e.isProxyCommand() || !(e.getSender() instanceof ProxiedPlayer)) return;
 		e.setCancelled(true);
 		ProxiedPlayer player = (ProxiedPlayer)e.getSender();
-		CachedMetaData user = Core.getInstance().getLuckPerms().getPlayerAdapter(ProxiedPlayer.class).getMetaData(player);
+		CachedMetaData user = Core.get().getLuckPerms().getPlayerAdapter(ProxiedPlayer.class).getMetaData(player);
 		String message = player.getName() + ": " + e.getMessage();
 		if (user.getPrefix() != null) {
 			message = user.getPrefix() + ChatColor.RESET + player.getName() + ": " + e.getMessage();
 		}
 		message = ChatColor.translateAlternateColorCodes('&', message);
-		for (ProxiedPlayer other : Core.getInstance().getProxy().getPlayers()) {
+		for (ProxiedPlayer other : Core.get().getProxy().getPlayers()) {
 			other.sendMessage(new TextComponent(message));
 		}
 	}
@@ -31,6 +32,7 @@ public class MessageListener implements Listener {
 	@EventHandler 
 	public void onProxyDefineCommands(ProxyDefineCommandsEvent e) {
 		e.getCommands().clear();
+		e.getCommands().put("lobby", Core.get().getLobbyCommand());
 	}
 	
 }

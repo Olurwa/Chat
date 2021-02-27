@@ -15,7 +15,7 @@ public class PlayerListener implements Listener {
     public void onPostLogin(PostLoginEvent e) {
 		// Set up the join message
 		JoinMessage msg = new JoinMessage(e.getPlayer());
-		for (ProxiedPlayer other : Core.getInstance().getProxy().getPlayers()) {
+		for (ProxiedPlayer other : Core.get().getProxy().getPlayers()) {
 			other.sendMessage(msg.getJoinMessage());
 		}
     }

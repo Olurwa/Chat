@@ -15,7 +15,7 @@ public class LobbyCommand extends Command {
 	public void execute(CommandSender sender, String[] args) {
 		if ((sender instanceof ProxiedPlayer)) {
 			ProxiedPlayer p = (ProxiedPlayer)sender;
-			p.connect(Core.getInstance().getProxy().getServerInfo("lobby"));
+			p.connect(Core.get().getProxy().getServerInfo("lobby"));
 		}
 	}
 

@@ -13,6 +13,7 @@ import fr.doritanh.olurwa.core.messages.JoinMessage;
 import net.luckperms.api.LuckPerms;
 import net.luckperms.api.LuckPermsProvider;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
+import net.md_5.bungee.api.plugin.Command;
 import net.md_5.bungee.api.plugin.Plugin;
 import net.md_5.bungee.config.Configuration;
 import net.md_5.bungee.config.ConfigurationProvider;
@@ -22,6 +23,9 @@ public class Core extends Plugin {
 	private static Core instance;
 	private LuckPerms lp;
 	private Configuration config;
+	
+	private Command motdCommand;
+	private Command lobbyCommand;
 	
 	public Core() {
 		Core.instance = this;
@@ -47,8 +51,10 @@ public class Core extends Plugin {
 		config.set("motd", "Olurwa en construction");
 		
 		// Register commands
-		this.getProxy().getPluginManager().registerCommand(this, new MotdCommand());
-		this.getProxy().getPluginManager().registerCommand(this, new LobbyCommand());
+		this.motdCommand = new MotdCommand();
+		this.lobbyCommand = new LobbyCommand();
+		this.getProxy().getPluginManager().registerCommand(this, this.motdCommand);
+		this.getProxy().getPluginManager().registerCommand(this, this.lobbyCommand);
 		// Register events
 		this.getProxy().getPluginManager().registerListener(this, new MessageListener());
 		this.getProxy().getPluginManager().registerListener(this, new ProxyPingListener());
@@ -56,7 +62,7 @@ public class Core extends Plugin {
 		
     }
 	
-	public static Core getInstance() {
+	public static Core get() {
 		return instance;
 	}
 	
@@ -67,4 +73,14 @@ public class Core extends Plugin {
 	public LuckPerms getLuckPerms() {
 		return this.lp;
 	}
+
+	public Command getMotdCommand() {
+		return motdCommand;
+	}
+
+	public Command getLobbyCommand() {
+		return lobbyCommand;
+	}
+	
+	
 }

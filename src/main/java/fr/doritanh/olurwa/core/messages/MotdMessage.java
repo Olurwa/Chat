@@ -8,7 +8,7 @@ public class MotdMessage {
 	private TextComponent motd;
 	
 	public MotdMessage() {
-		String motd = Core.getInstance().getConfig().getString("motd");
+		String motd = Core.get().getConfig().getString("motd");
 		this.motd = new TextComponent(motd);
 		this.motd.setColor(ChatColor.AQUA);
 		

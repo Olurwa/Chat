@@ -13,7 +13,7 @@ public class MotdCommand extends Command {
 
 	@Override
 	public void execute(CommandSender sender, String[] args) {
-		Core.getInstance().getConfig().set("motd", args);
+		Core.get().getConfig().set("motd", args);
 	}
 
 }
