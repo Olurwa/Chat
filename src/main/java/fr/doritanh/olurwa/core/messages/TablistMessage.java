@@ -8,7 +8,7 @@ public class TablistMessage {
 	private TextComponent footer;
 	
 	public TablistMessage() {
-		this.header = new TextComponent(ChatColor.AQUA + "Olurwa \n ");
+		this.header = new TextComponent(ChatColor.AQUA + "Olurwa");
 		this.footer = new TextComponent(ChatColor.GREEN + " \n Rejoignez-nous sur discord !");
 	}
 	
@@ -16,8 +16,8 @@ public class TablistMessage {
 		return header;
 	}
 
-	public void setHeader(TextComponent heander) {
-		this.header = heander;
+	public void setHeader(TextComponent header) {
+		this.header = header;
 	}
 
 	public TextComponent getFooter() {
