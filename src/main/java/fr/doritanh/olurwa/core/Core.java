@@ -37,7 +37,6 @@ public class Core extends Plugin {
 			configFile.createNewFile();
 			this.config = ConfigurationProvider.getProvider(YamlConfiguration.class).load(configFile);
 		} catch (IOException e) {
-			// e.printStackTrace();
 			this.getLogger().log(Level.SEVERE, "Can't create config file !");
 		}
 	}
@@ -49,6 +48,11 @@ public class Core extends Plugin {
 		
 		// Config file
 		config.set("motd", "Olurwa en construction");
+		try {
+			ConfigurationProvider.getProvider(YamlConfiguration.class).save(config, new File(getDataFolder(), "config.yml"));
+		} catch (IOException e) {
+			this.getLogger().log(Level.SEVERE, "Can't save config file !");
+		}
 		
 		// Register commands
 		this.motdCommand = new MotdCommand();
