@@ -39,7 +39,7 @@ public class PlayerListener implements Listener {
 		String players = "";
 		for (ProxiedPlayer p : playersCollection) {
 			if (p.getUniqueId() == e.getPlayer().getUniqueId())
-				return;
+				continue;
 			if (players.equalsIgnoreCase("")) {
 				players += p.getName();
 			} else {
