@@ -8,6 +8,8 @@ import com.google.common.io.ByteStreams;
 
 import fr.doritanh.olurwa.core.Core;
 import fr.doritanh.olurwa.core.messages.JoinMessage;
+import net.md_5.bungee.api.ChatColor;
+import net.md_5.bungee.api.chat.TextComponent;
 import net.md_5.bungee.api.config.ServerInfo;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
 import net.md_5.bungee.api.connection.Server;
@@ -29,6 +31,13 @@ public class PlayerListener implements Listener {
 
 	@EventHandler
 	public void onDisconnect(PlayerDisconnectEvent e) {
+		// Set up the quit message
+		TextComponent quitMessage = new TextComponent(e.getPlayer().getName() + " s'est déconnecté !");
+		quitMessage.setColor(ChatColor.RED);
+		for (ProxiedPlayer other : Core.get().getProxy().getPlayers()) {
+			other.sendMessage(quitMessage);
+		}
+
 		// Get server of player
 		Server srv = e.getPlayer().getServer();
 		// Get players in the network
