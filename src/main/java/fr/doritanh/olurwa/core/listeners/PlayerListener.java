@@ -1,6 +1,5 @@
 package fr.doritanh.olurwa.core.listeners;
 
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.Map;
 
@@ -37,7 +36,15 @@ public class PlayerListener implements Listener {
 		if (playersCollection == null || playersCollection.isEmpty()) {
 			return;
 		}
-		String players = Arrays.toString((String[]) playersCollection.toArray());
+		String players = "";
+		for (ProxiedPlayer p : playersCollection) {
+			if (players.equalsIgnoreCase("")) {
+				players += p.getName();
+			} else {
+				players += ", " + p.getName();
+			}
+		}
+		System.out.println("Players : " + players);
 
 		ByteArrayDataOutput out = ByteStreams.newDataOutput();
 		out.writeUTF("PlayerList");
