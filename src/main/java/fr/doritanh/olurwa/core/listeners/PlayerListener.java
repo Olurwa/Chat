@@ -44,7 +44,6 @@ public class PlayerListener implements Listener {
 				players += ", " + p.getName();
 			}
 		}
-		System.out.println("Players : " + players);
 
 		ByteArrayDataOutput out = ByteStreams.newDataOutput();
 		out.writeUTF("PlayerList");
