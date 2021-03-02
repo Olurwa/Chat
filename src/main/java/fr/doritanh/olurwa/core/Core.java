@@ -9,10 +9,8 @@ import fr.doritanh.olurwa.core.commands.MotdCommand;
 import fr.doritanh.olurwa.core.listeners.MessageListener;
 import fr.doritanh.olurwa.core.listeners.PlayerListener;
 import fr.doritanh.olurwa.core.listeners.ProxyPingListener;
-import fr.doritanh.olurwa.core.messages.JoinMessage;
 import net.luckperms.api.LuckPerms;
 import net.luckperms.api.LuckPermsProvider;
-import net.md_5.bungee.api.connection.ProxiedPlayer;
 import net.md_5.bungee.api.plugin.Command;
 import net.md_5.bungee.api.plugin.Plugin;
 import net.md_5.bungee.config.Configuration;
@@ -23,10 +21,10 @@ public class Core extends Plugin {
 	private static Core instance;
 	private LuckPerms lp;
 	private Configuration config;
-	
+
 	private Command motdCommand;
 	private Command lobbyCommand;
-	
+
 	public Core() {
 		Core.instance = this;
 		if (!this.getDataFolder().exists()) {
@@ -40,16 +38,16 @@ public class Core extends Plugin {
 			this.getLogger().log(Level.SEVERE, "Can't create config file !");
 		}
 	}
-	
+
 	@Override
-    public void onEnable() {
+	public void onEnable() {
 		// Use Luckperms API for prefix in chat
 		this.lp = LuckPermsProvider.get();
-		
+
 		// Config file
 		config.set("motd", "Olurwa en construction");
 		this.saveConfig();
-		
+
 		// Register commands
 		this.motdCommand = new MotdCommand();
 		this.lobbyCommand = new LobbyCommand();
@@ -59,25 +57,28 @@ public class Core extends Plugin {
 		this.getProxy().getPluginManager().registerListener(this, new MessageListener());
 		this.getProxy().getPluginManager().registerListener(this, new ProxyPingListener());
 		this.getProxy().getPluginManager().registerListener(this, new PlayerListener());
-		
-    }
-	
+		// Register channels
+		this.getProxy().registerChannel("olurwa:core");
+
+	}
+
 	public static Core get() {
 		return instance;
 	}
-	
+
 	public Configuration getConfig() {
 		return config;
 	}
-	
+
 	public void saveConfig() {
 		try {
-			ConfigurationProvider.getProvider(YamlConfiguration.class).save(config, new File(getDataFolder(), "config.yml"));
+			ConfigurationProvider.getProvider(YamlConfiguration.class).save(config,
+					new File(getDataFolder(), "config.yml"));
 		} catch (IOException e) {
 			this.getLogger().log(Level.SEVERE, "Can't save config file !");
 		}
 	}
-	
+
 	public LuckPerms getLuckPerms() {
 		return this.lp;
 	}
@@ -89,6 +90,5 @@ public class Core extends Plugin {
 	public Command getLobbyCommand() {
 		return lobbyCommand;
 	}
-	
-	
+
 }
