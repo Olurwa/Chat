@@ -35,6 +35,7 @@ public class PlayerListener implements Listener {
 		TextComponent quitMessage = new TextComponent(e.getPlayer().getName() + " s'est déconnecté !");
 		quitMessage.setColor(ChatColor.RED);
 		for (ProxiedPlayer other : Core.get().getProxy().getPlayers()) {
+			System.out.println("Send message");
 			other.sendMessage(quitMessage);
 		}
 
